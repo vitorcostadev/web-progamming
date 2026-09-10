@@ -23,13 +23,14 @@ A simple authentication system built with Node.js and Express, featuring user lo
 1. Install the dependencies:
 
 ```bash
-npm install
+npm init -y
+npm install express express-session
 ```
 
 2. Start the server:
 
 ```bash
-npm run dev
+node src/js/index.js
 ```
 
 3. Access the application in your browser:
@@ -48,7 +49,7 @@ http://localhost:3000
 ## Main endpoints
 
 - `GET /login`: show the login form.
-- `POST /login`: validate the credentials.
+- `POST /login`: validate the credentials and redirect to the home page.
 - `GET /home`: show the restricted area.
 - `GET /logout`: end the session.
 

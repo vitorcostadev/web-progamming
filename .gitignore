@@ -1,6 +1,4 @@
-/node_modules
-/.vscode
-
-
-*.json
-*.md
+/node_modules/
+/.vscode/
+.env
+*.log

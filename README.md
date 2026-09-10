@@ -26,13 +26,13 @@ A simple authentication system built with Node.js and Express, featuring user lo
 npm install
 ```
 
-1. Start the server:
+2. Start the server:
 
 ```bash
 npm run dev
 ```
 
-1. Access the application in your browser:
+3. Access the application in your browser:
 
 ```text
 http://localhost:3000

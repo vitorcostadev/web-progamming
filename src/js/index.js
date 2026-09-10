@@ -66,10 +66,6 @@ app.get('/home', requireAuth, (req, res) => {
     return res.status(200).send(buildHtml(req));
 });
 
-app.post('/home', requireAuth, (req, res) => {
-    return res.status(200).send(buildHtml(req));
-});
-
 app.get('/logout', (req, res) => {
 
     req.session.destroy((err) => {

@@ -1,0 +1,39 @@
+body{
+    background-color: #eeedf0;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 1.6;
+}
+label{
+    font-weight: bold;
+}
+
+.itas-style{
+    font-size: 0.85em;
+    padding: 5px;
+    display: block;
+    
+}
+
+.itas-style:hover{
+    background-color: rgb(189, 188, 189);
+}
+
+table{
+    padding: 20px;
+    font-size: 0.75em;
+    vertical-align: top;
+    word-wrap: break-word;
+    text-align: justify;
+    border-bottom: solid 1px rgb(189, 188, 189);
+}
+
+th{
+    background-color: rgb(189, 188, 189);
+    border-bottom: 1px 3px black;
+}
+
+tbody > tr{
+    background-color: rgb(189, 188, 189);
+}
+

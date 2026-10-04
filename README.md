@@ -1,58 +1,23 @@
-# Univali Web Progamming M1 - Simple Authentication System
+# Programação Web - M1 e M2
 
-A simple authentication system built with Node.js and Express, featuring user login, session management, and access history tracking.
+Projeto acadêmico da disciplina de Programação Web, dividido em duas etapas:
 
-## Features
+- **M1:** sistema simples de login com Node.js, Express e sessões. Possui área protegida, opção de manter a sessão por três dias, logout e histórico de acessos em memória.
+- **M2:** formulário HTML e CSS para cadastro de obras de museu. Esta etapa ainda está em desenvolvimento; o registro das obras e a validação do formulário não estão concluídos. Os requisitos estão em [M2/REQUIREMENTS.md](M2/REQUIREMENTS.md).
 
-- Login with username and password.
-- Restricted area for authenticated users.
-- Option to stay logged in for 3 days.
-- Logout.
-- Access history with date, time, and browser.
+## Como executar o M1
 
-## Dependencies
-
-- Node.js
-- Express
-- express-session
-- HTML5
-- JavaScript
-
-## How to Run
-
-1. Install the dependencies:
+É necessário ter Node.js e npm instalados. Na raiz do projeto, instale as dependências:
 
 ```bash
-npm init -y
-npm install express express-session
+npm install
 ```
 
-2. Start the server:
+Depois, inicie o servidor a partir da pasta `M1`:
 
 ```bash
+cd M1
 node src/js/index.js
 ```
 
-3. Access the application in your browser:
-
-```text
-http://localhost:3000
-```
-
-## Users for tests
-
-| User | Password |
-| --- | --- |
-| Joao | 1234 |
-| Maria | 5678 |
-
-## Main endpoints
-
-- `GET /login`: show the login form.
-- `POST /login`: validate the credentials and redirect to the home page.
-- `GET /home`: show the restricted area.
-- `GET /logout`: end the session.
-
-## Note
-
-The access history is stored in memory while the server is running. It will be lost when the server restarts.
+Acesse <http://localhost:3000/login> no navegador. Os usuários de exemplo estão definidos em `M1/src/js/constants.js`. O histórico de acessos é perdido quando o servidor é reiniciado.

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css", rel="stylesheet", href="../style/style.css">
+    <script src="../js/registerValidator.js" defer></script>
+</head>
+<body>
+    <form action="/register" method="get | post" id="museu-form">
+
+        <label for="work_name">
+            Nome da obra: 
+        </label>
+
+        <input 
+        type="text" 
+        name="work_name" 
+        id="work_name"
+        maxlength="100"
+        class="itas-style"
+        required>
+        
+
+        <label for="actor">
+            Nome do autor: 
+        </label>
+
+        <input 
+        type="text" 
+        name="actor" 
+        id="actor"
+        class="itas-style"
+        maxlength="100"
+        required> 
+
+        <label for="work_year">
+            Ano da obra: 
+        </label>
+
+        <input 
+        type="number" 
+        name="work_year" 
+        id="work_year"
+        maxlength="4"
+        class="itas-style"
+        required>
+
+        <label for="period_work">
+            Escolha um período da obra: 
+        </label>
+
+        <select 
+        name="period_work" 
+        id="period_work"
+        class="itas-style"
+        required>
+            <option value="">Escolha uma opção</option>
+            <option value="d.C">d.C</option>
+            <option value="a.C">a.C</option>
+        </select>
+
+        <label for="work_type">
+            Escolha o tipo da obra: 
+        </label>
+
+        <select 
+        name="work_type" 
+        id="work_type"
+        class="itas-style"
+        required>
+            <option value="">Escolha uma opção</option>
+            <option value="quadro">Quadro</option>
+            <option value="escultura">Escultura</option>
+            <option value="outro"> Outro</option>
+        </select>
+
+        <label for="details_text">
+            Detalhamento
+        </label>
+
+        <textarea
+        id="details_text"
+        name="details"
+        rows="10"
+        cols="30"
+        maxlength="2000"
+        class="itas-style"
+        ></textarea>
+
+        <input 
+        type="submit" 
+        class="itas-style"
+        value="Cadastrar"
+        onclick="registerValidator()"
+        >
+    </form>
+</body>
+</html>

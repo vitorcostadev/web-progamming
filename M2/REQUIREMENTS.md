@@ -67,9 +67,9 @@ E nesta fase, utilizando o tema criado anteriormente, é solicitado criar um for
 5. O ano da obra deve ser um número válido.
 6. Os campos de seleção devem ter um valor válido selecionado; o valor vazio não é válido.
 7. Após processar a validação, a função deve:
-   a. Exibir uma lista (`ul`) com um item para cada campo que falhou na validação e uma mensagem explicando o motivo.
-   b. Exibir cada campo que falhou na validação com as bordas vermelhas.
-   c. Limpar a lista de mensagens e as bordas ao iniciar uma nova validação.
+   - Exibir uma lista (`ul`) com um item para cada campo que falhou na validação e uma mensagem explicando o motivo.
+   - Exibir cada campo que falhou na validação com as bordas vermelhas.
+   - Limpar a lista de mensagens e as bordas ao iniciar uma nova validação.
 
 ### Registro
 

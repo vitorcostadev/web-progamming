@@ -1,4 +1,4 @@
-const stringValidator = (value) => {
+export const stringValidator = (value) => {
     if (
         value.trim().length === 0 ||
         any(value.split(""), (char) => !isNaN(char) && char !== " ")
@@ -9,16 +9,11 @@ const stringValidator = (value) => {
     return true;
 };
 
-const any = (array, callback) => {
+export const any = (array, callback) => {
     for (let i = 0; i < array.length; i++) {
         if(callback(array[i])) {
             return true;
         }
     }
     return false;
-};
-
-module.exports = {
-    stringValidator,
-    any
 };

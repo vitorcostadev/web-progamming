@@ -3,99 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link type="text/css", rel="stylesheet", href="/style/style.css">
+    <title>Cadastro de obras do museu</title>
+    <link rel="stylesheet" href="/style/style.css">
     <script src="/js/registerValidator.js" type="module"></script>
 </head>
 <body>
-    <form action="/register" method="get | post" id="museu-form">
+    <main>
+        <h1>Cadastro de obras do museu</h1>
 
-        <label for="work_name">
-            Nome da obra: 
-        </label>
+        <form id="museu-form" novalidate>
+            <label for="work_name">Nome da obra:</label>
+            <input
+                type="text"
+                name="work_name"
+                id="work_name"
+                class="itas-style"
+                maxlength="100"
+                required>
 
-        <input 
-        type="text" 
-        name="work_name" 
-        id="work_name"
-        minlength="6"
-        maxlength="100"
-        class="itas-style"
-        required>
-        
+            <label for="actor">Nome do autor:</label>
+            <input
+                type="text"
+                name="actor"
+                id="actor"
+                class="itas-style"
+                maxlength="100"
+                required>
 
-        <label for="actor">
-            Nome do autor: 
-        </label>
+            <label for="work_year">Ano da obra:</label>
+            <input
+                type="text"
+                inputmode="numeric"
+                name="work_year"
+                id="work_year"
+                class="itas-style"
+                maxlength="4"
+                required>
 
-        <input 
-        type="text" 
-        name="actor" 
-        id="actor"
-        class="itas-style"
-        minlength="10"
-        maxlength="100"
-        required> 
+            <label for="period_work">Período da obra:</label>
+            <select
+                name="period_work"
+                id="period_work"
+                class="itas-style"
+                required>
+                <option value="">Escolha uma opção</option>
+                <option value="d.C">d.C.</option>
+                <option value="a.C">a.C.</option>
+            </select>
 
-        <label for="work_year">
-            Ano da obra: 
-        </label>
+            <label for="work_type">Tipo da obra:</label>
+            <select
+                name="work_type"
+                id="work_type"
+                class="itas-style"
+                required>
+                <option value="">Escolha uma opção</option>
+                <option value="quadro">Quadro</option>
+                <option value="escultura">Escultura</option>
+                <option value="outro">Outro</option>
+            </select>
 
-        <input 
-        type="number" 
-        name="work_year" 
-        id="work_year"
-        maxlength="4"
-        class="itas-style"
-        required>
+            <label for="details_text">Detalhamento (opcional):</label>
+            <textarea
+                id="details_text"
+                name="details"
+                rows="5"
+                maxlength="2000"
+                class="itas-style"></textarea>
 
-        <label for="period_work">
-            Escolha um período da obra: 
-        </label>
+            <button type="submit" class="itas-style">Cadastrar</button>
+        </form>
 
-        <select 
-        name="period_work" 
-        id="period_work"
-        class="itas-style"
-        required>
-            <option value="">Escolha uma opção</option>
-            <option value="d.C">d.C</option>
-            <option value="a.C">a.C</option>
-        </select>
+        <section aria-labelledby="works-title">
+            <h2 id="works-title">Obras cadastradas</h2>
+            <table id="works-table">
+                <caption>Selecione uma obra para ver seu detalhamento.</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nome da obra</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Ano</th>
+                        <th scope="col">Período</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
 
-        <label for="work_type">
-            Escolha o tipo da obra: 
-        </label>
+    <dialog id="validator" aria-labelledby="validator-title"></dialog>
 
-        <select 
-        name="work_type" 
-        id="work_type"
-        class="itas-style"
-        required>
-            <option value="">Escolha uma opção</option>
-            <option value="quadro">Quadro</option>
-            <option value="escultura">Escultura</option>
-            <option value="outro"> Outro</option>
-        </select>
-
-        <label for="details_text">
-            Detalhamento
-        </label>
-
-        <textarea
-        id="details_text"
-        name="details"
-        rows="10"
-        cols="30"
-        maxlength="2000"
-        class="itas-style"
-        ></textarea>
-        
-        <input 
-        type="submit" 
-        class="itas-style"
-        value="Cadastrar"
-        >
-    </form>
+    <dialog id="work-details-dialog" aria-labelledby="details-title">
+        <h2 id="details-title">Detalhamento da obra</h2>
+        <p id="work-details-content"></p>
+        <form method="dialog">
+            <button type="submit" class="itas-style">Fechar</button>
+        </form>
+    </dialog>
 </body>
 </html>

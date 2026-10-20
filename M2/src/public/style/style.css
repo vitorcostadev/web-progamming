@@ -1,0 +1,60 @@
+body {
+    background-color: #eeedf0;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 1.6;
+}
+
+label {
+    font-weight: bold;
+}
+
+.itas-style {
+    display: block;
+    font-size: 0.85em;
+    padding: 5px;
+}
+
+.itas-style:hover {
+    background-color: rgb(189, 188, 189);
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+}
+
+td,
+th {
+    font-size: 0.75em;
+    overflow-wrap: anywhere;
+    padding: 20px;
+    text-align: justify;
+    vertical-align: top;
+}
+
+th {
+    background-color: rgb(189, 188, 189);
+    border-bottom: solid 3px black;
+}
+
+tbody tr:hover {
+    background-color: rgb(189, 188, 189);
+}
+
+tbody tr:last-child td {
+    border-bottom: solid 1px rgb(189, 188, 189);
+}
+
+#works-table tbody tr {
+    cursor: pointer;
+}
+
+.invalid-field {
+    border: 2px solid red;
+}
+
+dialog {
+    max-width: min(90vw, 40rem);
+}

@@ -1,13 +1,10 @@
-const test =  require('node:test');
-const assert = require('node:assert/strict');
-const { stringValidator, any } = require('./M2/src/js/constants.js');
+import test from 'node:test';
+import assert from 'node:assert/strict';
+
+import { stringValidator } from './M2/src/js/constants.js';
 
 const yearValidator = (year) => {
-    const number = Number(year);
-
-    return (
-        Number.isInteger(number)
-    );
+    return Number.isInteger(Number(year));
 };
 
 const registerValidator = (
@@ -18,7 +15,7 @@ const registerValidator = (
     work_type,
     details
 ) => {
-    const invalidNameFields = [
+    const invalidFields = [
         work_name,
         actor,
         period_work,
@@ -26,73 +23,78 @@ const registerValidator = (
     ].filter((value) => !stringValidator(value));
 
     if (!yearValidator(work_year)) {
-        invalidNameFields.push(work_year);
+        invalidFields.push(work_year);
     }
 
-    if (invalidNameFields.length > 0) {
-        return invalidNameFields;
-    }
-
-    return true;
+    return invalidFields.length > 0
+        ? invalidFields
+        : true;
 };
 
+const validData = {
+    work_name: "Work Name",
+    actor: "Actor Name",
+    work_year: 2020,
+    period_work: "Period Work",
+    work_type: "Work Type",
+    details: "Details"
+};
 
-test('checkInvalidYear', () => {
-    const result = registerValidator(
-        "",
-        "Actor Name",
-        "Invalid Year",
-        "Period Work",
-        "Work Type",
-        "Details"
-    );
-    assert.deepStrictEqual(result, ['', 'Invalid Year']);
-});
+const testCases = [
+    {
+        name: "checkInvalidYear",
+        data: {
+            work_name: "",
+            work_year: "Invalid Year"
+        },
+        expected: ["", "Invalid Year"]
+    },
+    {
+        name: "checkInvalidWorkName",
+        data: {
+            work_name: ""
+        },
+        expected: [""]
+    },
+    {
+        name: "checkInvalidActor",
+        data: {
+            actor: ""
+        },
+        expected: [""]
+    },
+    {
+        name: "checkInvalidPeriodWork",
+        data: {
+            period_work: ""
+        },
+        expected: [""]
+    },
+    {
+        name: "checkInvalidWorkType",
+        data: {
+            work_type: ""
+        },
+        expected: [""]
+    }
+];
 
-test('checkInvalidWorkName', () => {
-    const result = registerValidator(
-        "",
-        "Actor Name",
-        2020,
-        "Period Work",
-        "Work Type",
-        "Details"
-    );
-    assert.deepStrictEqual(result, ['']);
-});
+testCases.forEach(({ name, data, expected }) => {
+    test(name, () => {
+        const values = {
+            ...validData,
+            ...data
+        };
 
-test('checkInvalidActor', () => {
-    const result = registerValidator(
-        "Work Name",
-        "",
-        2020,
-        "Period Work",
-        "Work Type",
-        "Details"
-    );
-    assert.deepStrictEqual(result, ['']);
-});
+        const result = registerValidator(
+            values.work_name,
+            values.actor,
+            values.work_year,
+            values.period_work,
+            values.work_type,
+            values.details
+        );
 
-test('checkInvalidPeriodWork', () => {
-    const result = registerValidator(
-        "Work Name",
-        "Actor Name",
-        2020,
-        "",
-        "Work Type",
-        "Details"
-    );
-    assert.deepStrictEqual(result, ['']);
-});
-
-test('checkInvalidWorkType', () => {
-    const result = registerValidator(
-        "Work Name",
-        "Actor Name",
-        2020,
-        "Period Work",
-        "",
-        "Details"
-    );
-    assert.deepStrictEqual(result, ['']);
+        assert.deepStrictEqual(result, expected);
+    });
 });

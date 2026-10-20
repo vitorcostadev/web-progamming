@@ -58,7 +58,7 @@ export const stringValidator = (data, fields, result) => {
         if (
             typeof value !== "string" ||
             value.trim().length === 0 ||
-            any(value.split(""), char => !isNaN(char) && char !== " ")
+            value.split("").some(char => !isNaN(char) && char !== " ")
         ) {
             result.add(field, "invalid_type");
         }

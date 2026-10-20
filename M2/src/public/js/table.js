@@ -29,7 +29,6 @@ export function clearValidationErrors() {
 
     form.querySelectorAll(".invalid-field").forEach((field) => {
         field.classList.remove("invalid-field");
-        field.removeAttribute("aria-invalid");
     });
 }
 
@@ -47,7 +46,6 @@ export function showValidationErrors(errors) {
         const field = form.elements.namedItem(error.field);
         if (field) {
             field.classList.add("invalid-field");
-            field.setAttribute("aria-invalid", "true");
         }
     });
 

@@ -1,21 +1,24 @@
-import { normalizedNames } from "./constants.js";
-
 const form = document.getElementById("museu-form");
 const validator = document.getElementById("validator");
 const worksBody = document.querySelector("#works-table tbody");
 const detailsDialog = document.getElementById("work-details-dialog");
 const detailsContent = document.getElementById("work-details-content");
 
+const normalizedNames = {
+    work_name: "Nome da obra",
+    actor: "Autor",
+    work_year: "Ano da obra",
+    period_work: "Período da obra",
+    work_type: "Tipo da obra",
+    details: "Detalhes da obra"
+};
+
 const errorMessage = ({ type, limit }) => {
     switch (type) {
-        case "required":
-            return "O preenchimento é obrigatório.";
         case "min_length":
             return `Informe pelo menos ${limit} caracteres.`;
         case "max_length":
             return `Informe no máximo ${limit} caracteres.`;
-        case "invalid_number":
-            return "Informe um ano numérico com até quatro algarismos.";
         case "invalid_option":
             return "Selecione uma das opções disponíveis.";
         default:

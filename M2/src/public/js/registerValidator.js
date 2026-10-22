@@ -1,41 +1,22 @@
 import {
-    minMaxValidator,
-    selectValidator,
-    stringValidator,
-    ValidationResult,
-    yearValidator
-} from "./constants.js";
-import {
     addWorkRow,
     clearValidationErrors,
     showValidationErrors
 } from "./table.js";
 
 const form = document.getElementById("museu-form");
-const REQUIRED_STRING_FIELDS = ["work_name", "actor"];
-
-const registerValidator = (formData) => {
-    const data = Object.fromEntries(formData.entries());
-    const result = new ValidationResult();
-
-    stringValidator(data, REQUIRED_STRING_FIELDS, result);
-    minMaxValidator(data, result);
-    yearValidator(data.work_year, result);
-    selectValidator(data, result);
-
-    return { data, result };
-};
+const { validateWorkData } = window.M2Validation;
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     clearValidationErrors();
 
-    const { data, result } = registerValidator(new FormData(form));
+    const result = validateWorkData(Object.fromEntries(new FormData(form).entries()));
     if (!result.isValid) {
         showValidationErrors(result.errors);
         return;
     }
 
-    addWorkRow(data);
+    addWorkRow(result.data);
     form.reset();
 });
